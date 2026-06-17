@@ -1,0 +1,8 @@
+{
+  "name": "ERP CRM Dashboard",
+  "description": "A modern ERP and CRM panel with localization, invoice logs, accounts payable, and analytical charts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
