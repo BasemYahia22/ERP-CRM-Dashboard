@@ -202,9 +202,9 @@ export const Login: React.FC = () => {
           type="button"
           variant="secondary"
           onClick={handleGuestLogin}
-          className="w-full border border-indigo-150 dark:border-indigo-900/50 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 font-bold"
+          className="mt-5 w-full border border-indigo-150 dark:border-indigo-900/50 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 font-bold"
         >
-          <UserCheck className="h-4 w-4 flex-shrink-0" />
+          <UserCheck className="h-4 w-4 shrink-0 mx-3" />
           <span>{language === 'ar' ? 'الدخول السريع كزائر' : 'Guest Sign In (Instant Access)'}</span>
         </Button>
         </div>
