@@ -3,7 +3,7 @@ import { useAppStore } from "../stores/store";
 import { translations } from "../i18n/translations";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
-import { Eye, EyeOff, Mail, Lock, ShieldCheck, Globe } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock,UserCheck, ShieldCheck, Globe } from "lucide-react";
 
 export const Login: React.FC = () => {
   const { login, language, setLanguage, navigateTo, addToast } = useAppStore();
@@ -19,6 +19,7 @@ export const Login: React.FC = () => {
   // Validation errors
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [error, setError] = useState('');
 
   const validate = () => {
     let isValid = true;
@@ -66,6 +67,11 @@ export const Login: React.FC = () => {
         addToast(t.invalid_credentials, "error");
       }
     }, 1200);
+  };
+
+    const handleGuestLogin = () => {
+    setError('');
+    login('demo@example.com', language === 'ar' ? 'مستخدم زائر' : 'Guest Account');
   };
 
   return (
@@ -191,6 +197,16 @@ export const Login: React.FC = () => {
               {t.no_account}
             </button>
           </div>
+          {/* PROMINENT GUEST LOGIN BUTTON */}
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={handleGuestLogin}
+          className="w-full border border-indigo-150 dark:border-indigo-900/50 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 font-bold"
+        >
+          <UserCheck className="h-4 w-4 flex-shrink-0" />
+          <span>{language === 'ar' ? 'الدخول السريع كزائر' : 'Guest Sign In (Instant Access)'}</span>
+        </Button>
         </div>
 
         {/* Right Info Branding Banner Grid Col */}
